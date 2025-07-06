@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>EASY LOCAL MARKETING | 당근마켓 광고대행</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: 'Noto Sans KR', sans-serif; background: #fff; color: #20232a; margin: 0; }
+        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
+        .logo { display: flex; align-items: center; margin-bottom: 30px; }
+        .logo img { width: 60px; margin-right: 16px; }
+        .main-title { font-size: 2.4rem; font-weight: 700; margin-bottom: 10px; }
+        .sub-title { font-size: 1.1rem; color: #30475e; margin-bottom: 30px; }
+        .grid { display: flex; gap: 24px; margin-bottom: 36px; flex-wrap: wrap;}
+        .card { flex: 1; background: #f8f9fa; padding: 28px 22px 22px 22px; border-radius: 14px; box-shadow: 0 2px 8px rgba(100,120,140,0.05);}
+        .card h3 { margin-bottom: 16px; }
+        .cta { text-align: center; margin-top: 48px;}
+        .cta button { background: #30475e; color: #fff; font-size: 1.1rem; padding: 16px 40px; border: none; border-radius: 8px; cursor: pointer; }
+        .cta button:hover { background: #222831; }
+        .contact-form { max-width: 460px; margin: 48px auto 0 auto; background: #f1f5f9; padding: 32px 28px; border-radius: 18px;}
+        .contact-form h4 { margin-bottom: 18px;}
+        .contact-form input, .contact-form textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #d7e0ea; border-radius: 6px; }
+        .contact-form button { width: 100%; background: #30475e; color: #fff; padding: 13px; border: none; border-radius: 7px; font-size: 1rem;}
+        .contact-form button:hover { background: #222831; }
+        @media (max-width: 800px) {
+            .grid { flex-direction: column; }
+            .card { margin-bottom: 20px;}
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 로고 & 타이틀 -->
+        <div class="logo">
+            <img src="logo.png" alt="로고">
+            <div>
+                <div class="main-title">EASY LOCAL MARKETING</div>
+                <div class="sub-title">우리 동네를 위한, 가장 쉬운 당근마켓 광고대행 서비스</div>
+            </div>
+        </div>
+
+        <!-- 데이터/성과 그래프 -->
+        <div class="grid">
+            <div class="card">
+                <h3>최근 90일간 조회수</h3>
+                <canvas id="viewChart" height="120"></canvas>
+                <div style="margin-top:8px; color:#45a29e;">
+                    <strong>2,251회</strong> <span style="font-size:0.95em;">(+2,210)</span>
+                </div>
+            </div>
+            <div class="card">
+                <h3>최근 90일간 방문 고객수</h3>
+                <canvas id="customerChart" height="120"></canvas>
+                <div style="margin-top:8px; color:#45a29e;">
+                    <strong>1,845명</strong> <span style="font-size:0.95em;">(+1,814)</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 강점과 차별화 -->
+        <div class="grid">
+            <div class="card">
+                <h3>왜 EASY LOCAL?</h3>
+                <ul style="list-style:none; padding:0;">
+                    <li>✅ <b>실시간 데이터 제공</b>으로 투명한 광고 성과 확인</li>
+                    <li>✅ <b>지역 타겟팅</b>에 최적화된 당근마켓 광고 세팅</li>
+                    <li>✅ <b>광고비 100% 집행</b> & 숨겨진 수수료 없음</li>
+                    <li>✅ <b>빠르고 친절한 1:1 맞춤 컨설팅</b></li>
+                </ul>
+            </div>
+            <div class="card">
+                <h3>차별화 포인트</h3>
+                <ul style="list-style:none; padding:0;">
+                    <li>🎯 <b>광고 시작부터 성과까지,</b> 한눈에 보여주는 대시보드</li>
+                    <li>🎯 <b>비즈니스/업종별 맞춤 전략</b> 제안</li>
+                    <li>🎯 <b>초보도 OK</b>! 광고 경험이 없어도 쉬운 가이드</li>
+                    <li>🎯 <b>확실한 A/B 테스트</b>로 효율 극대화</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cta">
+            <button onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                지금 무료로 컨설팅 받아보기
+            </button>
+        </div>
+
+        <!-- 문의/상담 폼 -->
+        <div id="contact" class="contact-form">
+            <h4>빠른 상담 신청</h4>
+            <form>
+                <input type="text" placeholder="이름" required>
+                <input type="text" placeholder="연락처 (예: 010-0000-0000)" required>
+                <input type="text" placeholder="업종/매장명" required>
+                <textarea placeholder="문의 내용" rows="3"></textarea>
+                <button type="submit">상담 신청하기</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // 조회수 데이터 (예시)
+        const viewCtx = document.getElementById('viewChart').getContext('2d');
+        new Chart(viewCtx, {
+            type: 'line',
+            data: {
+                labels: ['04.10', '04.17', '04.24', '05.01', '05.08', '05.15', '05.22', '05.29', '06.05', '06.12', '06.19', '06.26', '07.03'],
+                datasets: [{
+                    label: '조회수',
+                    data: [20, 30, 40, 120, 100, 80, 90, 110, 130, 250, 500, 350, 400],
+                    borderColor: '#30475e',
+                    backgroundColor: 'rgba(48,71,94,0.07)',
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // 방문 고객수 데이터 (예시)
+        const customerCtx = document.getElementById('customerChart').getContext('2d');
+        new Chart(customerCtx, {
+            type: 'bar',
+            data: {
+                labels: ['04.10', '04.17', '04.24', '05.01', '05.08', '05.15', '05.22', '05.29', '06.05', '06.12', '06.19', '06.26', '07.03'],
+                datasets: [{
+                    label: '방문 고객수',
+                    data: [10, 15, 25, 60, 150, 80, 60, 100, 120, 180, 400, 300, 340],
+                    backgroundColor: '#45a29e'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+
+        // (폼 제출시 실제 전송기능은 필요시 추가)
+        document.querySelector('.contact-form form').addEventListener('submit', function(e){
+            e.preventDefault();
+            alert('상담 신청이 완료되었습니다!\n담당자가 곧 연락드릴게요.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
