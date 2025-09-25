@@ -3,21 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="naver-site-verification" content="0e0e6f1facdadea0ede40b2eb1b59f8662915b8f" />
-  <meta name="google-site-verification" content="S3k9eu2pwpdstCXBlPxbh9c7_asI9uNvD7YzV1wZ93w" />
+    <meta name="google-site-verification" content="S3k9eu2pwpdstCXBlPxbh9c7_asI9uNvD7YzV1wZ93w" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>클린창호 - 미세 방충망 전문 시공</title>
-
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17565220897"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'AW-17565220897');
-</script>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17565220897"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'AW-17565220897');
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        /* Reverted Colors & Danggeun Style Layout */
+        :root {
+            --primary-blue: #2c3e50;
+            --secondary-blue: #4a6580;
+            --highlight-yellow: #ffcc00;
+            --call-to-action-red: #e74c3c;
+            --call-to-action-red-dark: #c0392b;
+            --text-color: #333;
+            --light-gray: #f8f9fa;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -27,8 +36,8 @@
         
         body {
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            color: var(--text-color);
+            background-color: var(--light-gray);
         }
         
         .container {
@@ -39,7 +48,7 @@
         
         /* 헤더 스타일 */
         header {
-            background: linear-gradient(to right, #2c3e50, #4a6580);
+            background: linear-gradient(to right, var(--primary-blue), var(--secondary-blue));
             color: white;
             padding: 15px 0;
             position: fixed;
@@ -55,6 +64,12 @@
             align-items: center;
         }
         
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
         .logo {
             font-size: 28px;
             font-weight: 800;
@@ -62,12 +77,19 @@
         }
         
         .logo span {
-            color: #ffcc00;
+            color: var(--highlight-yellow);
             font-weight: 900;
         }
         
+        .tagline {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #f1f1f1;
+            white-space: nowrap;
+        }
+        
         .call-btn {
-            background: #e74c3c;
+            background: var(--call-to-action-red);
             color: white;
             padding: 12px 25px;
             border-radius: 30px;
@@ -79,14 +101,13 @@
         }
         
         .call-btn:hover {
-            background: #c0392b;
+            background: var(--call-to-action-red-dark);
             transform: translateY(-3px);
             box-shadow: 0 6px 15px rgba(231, 76, 60, 0.4);
         }
         
         /* 히어로 섹션 */
         .hero {
-            /* 배경 이미지 URL을 클린창호에 맞는 이미지로 변경해주세요. */
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1620336655055-bd87ca8f1370?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
             background-size: cover;
             background-position: center;
@@ -113,7 +134,7 @@
         }
         
         .highlight {
-            color: #ffcc00;
+            color: var(--highlight-yellow);
             font-weight: 700;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
@@ -121,15 +142,15 @@
         .phone-number {
             font-size: 2rem;
             font-weight: 800;
-            color: #ffcc00;
+            color: var(--highlight-yellow);
             margin: 20px 0;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
         
         .btn {
             display: inline-block;
-            background: #ffcc00;
-            color: #2c3e50;
+            background: var(--highlight-yellow);
+            color: var(--primary-blue);
             padding: 16px 45px;
             border-radius: 30px;
             text-decoration: none;
@@ -138,19 +159,19 @@
             margin: 15px;
             transition: all 0.3s;
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            border: 2px solid #ffcc00;
+            border: 2px solid var(--highlight-yellow);
         }
         
         .btn:hover {
             background: transparent;
-            color: #ffcc00;
+            color: var(--highlight-yellow);
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
         
         /* 혜택 배너 */
         .promo-banner {
-            background: linear-gradient(to right, #e74c3c, #c0392b);
+            background: linear-gradient(to right, var(--call-to-action-red), var(--call-to-action-red-dark));
             color: white;
             padding: 25px 0;
             text-align: center;
@@ -170,16 +191,20 @@
         }
         
         /* 제품 장점 */
-        .benefits {
+        .benefits, .gallery, .location, .before-after-section {
             padding: 80px 0;
-            background: #fff;
+            background-color: #fff;
+        }
+        
+        .before-after-section {
+            background-color: var(--light-gray);
         }
         
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 50px;
-            color: #2c3e50;
+            color: var(--primary-blue);
             font-weight: 800;
             position: relative;
         }
@@ -189,7 +214,7 @@
             display: block;
             width: 80px;
             height: 5px;
-            background: #ffcc00;
+            background: var(--highlight-yellow);
             margin: 15px auto;
             border-radius: 3px;
         }
@@ -207,7 +232,7 @@
             text-align: center;
             box-shadow: 0 8px 25px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
-            border-top: 5px solid #4a6580;
+            border-top: 5px solid var(--secondary-blue);
         }
         
         .benefit-card:hover {
@@ -217,13 +242,13 @@
         
         .benefit-icon {
             font-size: 55px;
-            color: #4a6580;
+            color: var(--secondary-blue);
             margin-bottom: 25px;
         }
         
         .benefit-card h3 {
             margin-bottom: 18px;
-            color: #2c3e50;
+            color: var(--primary-blue);
             font-size: 1.4rem;
             font-weight: 700;
         }
@@ -234,11 +259,6 @@
         }
         
         /* 갤러리 */
-        .gallery {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -264,8 +284,7 @@
         
         /* 시공 지역 */
         .location {
-            padding: 80px 0;
-            background: #2c3e50;
+            background: var(--primary-blue);
             color: white;
             text-align: center;
         }
@@ -283,8 +302,8 @@
         }
         
         .location-badge {
-            background: #ffcc00;
-            color: #2c3e50;
+            background: var(--highlight-yellow);
+            color: var(--primary-blue);
             padding: 18px 30px;
             border-radius: 30px;
             font-weight: 700;
@@ -295,7 +314,7 @@
         /* 문의 섹션 */
         .contact {
             padding: 80px 0;
-            background: linear-gradient(to right, #4a6580, #2c3e50);
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-blue));
             color: white;
             text-align: center;
         }
@@ -317,7 +336,7 @@
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            color: #2c3e50;
+            color: var(--primary-blue);
             font-weight: 600;
             font-size: 1.1rem;
         }
@@ -337,12 +356,12 @@
         .form-group input:focus,
         .form-group textarea:focus,
         .form-group select:focus {
-            border-color: #4a6580;
+            border-color: var(--secondary-blue);
             outline: none;
         }
         
         .form-submit {
-            background: #e74c3c;
+            background: var(--call-to-action-red);
             color: white;
             border: none;
             padding: 18px 35px;
@@ -356,7 +375,7 @@
         }
         
         .form-submit:hover {
-            background: #c0392b;
+            background: var(--call-to-action-red-dark);
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
         }
@@ -377,7 +396,7 @@
         }
         
         .footer-section h3 {
-            color: #ffcc00;
+            color: var(--highlight-yellow);
             margin-bottom: 20px;
             font-size: 1.4rem;
             font-weight: 700;
@@ -404,7 +423,7 @@
             z-index: 999;
             width: 70px;
             height: 70px;
-            background: #e74c3c;
+            background: var(--call-to-action-red);
             color: white;
             border-radius: 50%;
             display: flex;
@@ -444,28 +463,91 @@
         
         .trust-badge i {
             font-size: 40px;
-            color: #4a6580;
+            color: var(--secondary-blue);
             margin-bottom: 15px;
         }
         
         .trust-badge span {
             font-weight: 700;
-            color: #2c3e50;
+            color: var(--primary-blue);
             text-align: center;
+        }
+        
+        /* 새로운 시공 전/후 섹션 스타일 */
+        .before-after-section {
+            background: var(--light-gray);
+            text-align: center;
+        }
+
+        .before-after-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .before-after-item {
+            display: flex;
+            gap: 15px;
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .before-after-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .image-box {
+            position: relative;
+            width: 280px;
+            height: 280px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .label {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            padding: 8px 15px;
+            border-radius: 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 10;
+        }
+
+        .before-label {
+            background-color: var(--call-to-action-red);
+        }
+
+        .after-label {
+            background-color: var(--primary-blue);
         }
         
         /* 반응형 */
         @media (max-width: 768px) {
             .hero-content h1 {
-                font-size: 2.2rem;
+                font-size: 2rem; /* 폰트 크기 조정 */
             }
             
             .hero-content p {
-                font-size: 1.2rem;
+                font-size: 1.1rem; /* 폰트 크기 조정 */
             }
             
             .phone-number {
-                font-size: 1.7rem;
+                font-size: 1.5rem; /* 폰트 크기 조정 */
             }
             
             .btn {
@@ -491,6 +573,49 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .trust-badge {
+                width: 100%; /* 고정 너비를 유동적으로 변경 */
+                max-width: 180px; /* 최대 너비는 유지 */
+            }
+            
+            .before-after-item {
+                flex-direction: column;
+                width: 100%;
+                max-width: 320px;
+                padding: 15px;
+            }
+            .image-box {
+                width: 100%; /* 고정 너비를 유동적으로 변경 */
+                height: 250px;
+            }
+
+            .benefits-grid,
+            .gallery-grid {
+                grid-template-columns: 1fr; /* 모바일에서 한 줄에 하나씩만 표시 */
+            }
+
+            /* 모바일 반응형 */
+            .logo-area {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 5px;
+            }
+            .tagline {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .phone-number {
+                font-size: 1.3rem;
+            }
         }
     </style>
 </head>
@@ -498,15 +623,18 @@
     
     <header>
         <div class="container header-inner">
-            <div class="logo">클린<span>창호</span></div>
+            <div class="logo-area">
+                <div class="logo">클린<span>창호</span></div>
+                <div class="tagline">미세 방충망 · 블랙스텐 시공 전문</div>
+            </div>
             <a href="tel:01026687395" class="call-btn"><i class="fas fa-phone"></i> 상담전화: 010-2668-7395</a>
         </div>
     </header>
 
     <section class="hero">
         <div class="container hero-content">
-            <h1>미세 방충망 전문 클린창호<br>꼼꼼한 시공으로 완벽한 방충 해결</h1>
-            <p><span class="highlight">클린창호</span>의 전문 시공으로 깨끗한 실내 환경을 유지하세요</p>
+            <h1>미세 방충망 및 블랙스텐 전문 클린창호<br>꼼꼼한 시공에 친절함을 더하다</h1>
+            <p style="color: var(--highlight-yellow); font-weight: bold;">아래 시공 사진을 참조해주세요</p>
             <div class="phone-number">Tel: 010-2668-7395</div>
             <div class="cta-buttons">
                 <a href="#contact" class="btn"><i class="fas fa-calendar-check"></i> 무료 방문 견적 받기</a>
@@ -515,6 +643,47 @@
         </div>
     </section>
 
+    <section class="before-after-section">
+        <div class="container">
+            <h2 class="section-title">깔끔해진 창문을 직접 확인하세요!</h2>
+            <div class="before-after-wrapper">
+                <div class="before-after-item">
+                    <div class="image-box">
+                        <img src="시공전.jpg" alt="시공 전 방충망" class="before-img">
+                        <div class="label before-label">시공 전</div>
+                    </div>
+                    <div class="image-box">
+                        <img src="시공후.jpg" alt="시공 후 미세 방충망" class="after-img">
+                        <div class="label after-label">시공 후</div>
+                    </div>
+                </div>
+                <div class="before-after-item">
+                    <div class="image-box">
+                        <img src="시공전2.jpg" alt="시공 전 낡은 창문" class="before-img">
+                        <div class="label before-label">시공 전</div>
+                    </div>
+                    <div class="image-box">
+                        <img src="시공후2.jpg" alt="시공 후 깨끗한 창문" class="after-img">
+                        <div class="label after-label">시공 후</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="gallery">
+        <div class="container">
+            <h2 class="section-title">클린창호 실제 시공 사례</h2>
+            <p class="section-subtitle" style="text-align: center; margin-bottom: 30px; color: #666; font-size: 1.2rem;">믿을 수 있는 클린창호의 깔끔한 시공 결과를 직접 확인하세요!</p>
+            <div class="gallery-grid">
+                <div class="gallery-item" style="background-image: url('https://i.imgur.com/MGDmDsp.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('https://i.imgur.com/u5cibpa.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('https://i.imgur.com/p25v8lm.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('https://i.imgur.com/ulm2b3F.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('https://i.imgur.com/QzIZt5q.jpeg');"></div>
+                <div class="gallery-item" style="background-image: url('https://i.imgur.com/GYWMnJG.jpeg');"></div>
+            </div>
+        </div>
+    </section>
     <section class="promo-banner">
         <div class="container promo-content">
             <div class="promo-text">
@@ -526,6 +695,7 @@
 
     <section class="benefits">
         <div class="container">
+            <h2 class="section-title">클린창호만의 특별한 장점</h2>
             <div class="trust-badges">
                 <div class="trust-badge">
                     <i class="fas fa-clipboard-check"></i>
@@ -544,12 +714,6 @@
                     <span>국산 고급 소재</span>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <section class="benefits">
-        <div class="container">
-            <h2 class="section-title">클린창호만의 특별한 장점</h2>
             <div class="benefits-grid">
                 <div class="benefit-card">
                     <div class="benefit-icon"><i class="fas fa-tags"></i></div>
@@ -581,21 +745,6 @@
                     <h3>3년 품질 보증</h3>
                     <p>3년간의 품질 보증으로 설치 후에도 안심하고 사용하실 수 있습니다.</p>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery">
-        <div class="container">
-            <h2 class="section-title">클린창호 실제 시공 사례</h2>
-            <p class="section-subtitle" style="text-align: center; margin-bottom: 30px; color: #666; font-size: 1.2rem;">믿을 수 있는 클린창호의 깔끔한 시공 결과를 직접 확인하세요!</p>
-            <div class="gallery-grid">
-                <div class="gallery-item" style="background-image: url('https://i.imgur.com/MGDmDsp.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('https://i.imgur.com/u5cibpa.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('https://i.imgur.com/p25v8lm.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('https://i.imgur.com/ulm2b3F.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('https://i.imgur.com/QzIZt5q.jpeg');"></div>
-                <div class="gallery-item" style="background-image: url('https://i.imgur.com/GYWMnJG.jpeg');"></div>
             </div>
         </div>
     </section>
@@ -683,9 +832,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
